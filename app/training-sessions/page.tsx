@@ -13,9 +13,7 @@ export default async function TripsPageTemplate() {
   return (
     <div>
       <Suspense fallback={<div />}>
-        <div>
-          Sessions
-        </div>
+        <div>Sessions</div>
       </Suspense>
     </div>
   )
