@@ -1,4 +1,5 @@
 // My user Clerk ID:
+export const DEFAULT_LOCALE = 'ru'
 
 // My user - Clerk user
 const clerkUser = {

@@ -1,5 +1,5 @@
 import { useUser } from '@clerk/nextjs'
-import { Role, UserData } from '@/types/user.types'
+import { Role, UserData } from '@/types/types'
 
 export const useCurrentUser = (): UserData | null => {
   const userClerk = useUser()

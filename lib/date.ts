@@ -4,9 +4,9 @@ import duration from 'dayjs/plugin/duration'
 import isBetween from 'dayjs/plugin/isBetween'
 import relativeTime from 'dayjs/plugin/relativeTime'
 import isSameOrBefore from 'dayjs/plugin/isSameOrBefore'
-import { getLocalTimeZone } from '@internationalized/date'
+// import { getLocalTimeZone } from '@internationalized/date'
 
-import { DEFAULT_LOCALE } from '@/constants/constants'
+import { DEFAULT_LOCALE } from '@/constants/defaults'
 
 dayjs.extend(duration)
 dayjs.extend(isBetween)
@@ -156,9 +156,9 @@ export const getNumberOfNightsText = (
   return `${nights} night${nights === 1 ? '' : 's'}`
 }
 
-export const getTimeZone = () => {
-  return getLocalTimeZone() ?? 'UTC'
-}
+// export const getTimeZone = () => {
+//   return getLocalTimeZone() ?? 'UTC'
+// }
 
 export const parseDateTimeToZoned = () => {}
 

@@ -40,7 +40,7 @@ export type Workout = {
 export type Role = 'admin' | 'user' | 'trainer'
 
 export type UserDB = {
-  _id: Types.ObjectId | string
+  // _id: Types.ObjectId | string
   clerkId: string
   email: string | null
   firstName: string | null
