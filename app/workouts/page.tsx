@@ -1,6 +1,7 @@
 import React, { Suspense } from 'react'
 import { auth } from '@clerk/nextjs/server'
 import {Button} from "@/components/ui/button";
+import {TrainingCycle} from "@/types/types";
 
 export const metadata = {
   title: 'My trips-page',
