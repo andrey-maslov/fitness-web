@@ -6,11 +6,14 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "expose": "ngrok http --url=busy-jackal-promptly.ngrok-free.app 3000"
   },
   "dependencies": {
     "@clerk/nextjs": "^6.13.0",
     "@formkit/tempo": "^0.1.2",
+    "@radix-ui/react-dialog": "^1.1.7",
+    "@radix-ui/react-navigation-menu": "^1.2.6",
     "@radix-ui/react-slot": "^1.1.2",
     "@tanstack/react-query": "^5.71.10",
     "class-variance-authority": "^0.7.1",

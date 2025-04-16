@@ -27,7 +27,7 @@ export type Exercise = {
 
 export type Workout = {
   _id: Types.ObjectId | string
-  cycleId: Types.ObjectId | string // ссылка на тренировочный цикл (может быть null, если юзер не в цикле)
+  cycleId: Types.ObjectId | string | null // ссылка на тренировочный цикл (может быть null, если юзер не в цикле)
   userId: Types.ObjectId | string // кто выполнял
   date: Date
   title: string // «Грудь + Бицепс», «Ноги» – как назовёт

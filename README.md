@@ -39,3 +39,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 
 ### Intl 
 [next-intl example](https://github.com/amannn/next-intl/tree/main/examples/example-app-router-without-i18n-routing)
+
+### Ngrok: exposing/tunneling
+- [Getting started](https://ngrok.com/docs/getting-started/#step-1-install)
+- [Dashboard](https://dashboard.ngrok.com/)

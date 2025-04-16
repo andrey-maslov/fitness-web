@@ -53,6 +53,8 @@ export async function POST(req: Request) {
         created_at,
       } = event.data
 
+      console.log('CREATED', id)
+
       // To save in MongoDB
       const newUser: UserDB = {
         clerkId: id,
