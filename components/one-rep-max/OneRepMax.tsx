@@ -44,7 +44,7 @@ export default function OneRepMax() {
     <div>
       <div className='grid gap-4 sm:grid-cols-2 mb-8'>
         <div>
-          <Label>Вес (кг)</Label>
+          <Label className="mb-2">Вес (кг)</Label>
           <Input
             type='number'
             value={weight}
@@ -53,7 +53,7 @@ export default function OneRepMax() {
           />
         </div>
         <div>
-          <Label>Повторения</Label>
+          <Label className="mb-2">Кол-во повторений</Label>
           <Input
             type='number'
             value={reps}
@@ -65,19 +65,19 @@ export default function OneRepMax() {
 
       </div>
 
-      <div className='flex flex-wrap gap-2 items-center  mb-8'>
-        <Label>Формула для графика:</Label>
-        {Object.entries(formulas).map(([key, f]) => (
-          <Button
-            key={key}
-            variant={chartFormula === key ? 'default' : 'outline'}
-            onClick={() => setChartFormula(key as keyof typeof formulas)}
-            size='sm'
-          >
-            {f.name}
-          </Button>
-        ))}
-      </div>
+      {/*<div className='flex flex-wrap gap-2 items-center  mb-8'>*/}
+      {/*  <Label>Формула для графика:</Label>*/}
+      {/*  {Object.entries(formulas).map(([key, f]) => (*/}
+      {/*    <Button*/}
+      {/*      key={key}*/}
+      {/*      variant={chartFormula === key ? 'default' : 'outline'}*/}
+      {/*      onClick={() => setChartFormula(key as keyof typeof formulas)}*/}
+      {/*      size='sm'*/}
+      {/*    >*/}
+      {/*      {f.name}*/}
+      {/*    </Button>*/}
+      {/*  ))}*/}
+      {/*</div>*/}
 
       <div className='space-y-4  mb-8'>
         <h2 className='text-xl font-semibold'>Ваш максимум на 1 повтор по разным формулам</h2>
@@ -106,7 +106,7 @@ export default function OneRepMax() {
           ))}
         </ul>
 
-        <OneRepMaxBarChart base1RM={base1RM} percentages={percentages} />
+        {/*<OneRepMaxBarChart base1RM={base1RM} percentages={percentages} />*/}
       </div>
     </div>
   )

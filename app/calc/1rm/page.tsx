@@ -25,8 +25,8 @@ export const metadata: Metadata = {
 
 export default function OneRepMaxPage() {
   return (
-    <main className='max-w-2xl mx-auto p-6 space-y-8'>
-      <section className='space-y-4'>
+    <main className='max-w-2xl mx-auto'>
+      <section className='space-y-4 mb-8'>
         <h1 className='text-3xl font-bold'>
           Калькулятор 1RM (максимум на 1 повтор)
         </h1>
