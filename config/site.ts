@@ -30,5 +30,16 @@ export const siteConfig = {
       label: 'Profile',
       href: '/user-profile',
     },
+  ],
+
+  footerNavMenu: [
+    {
+      label: 'Правила',
+      href: '/terms-and-conditions',
+    },
+    {
+      label: 'Контакт',
+      href: '/contact',
+    },
   ]
 }

@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 
 import { Providers } from '@/app/providers'
 import {SiteHeader} from "@/components/layouts/header/SiteHeader";
+import Footer from '@/components/layouts/Footer'
 // import ErrorBoundary from '@/components/ErrorBoundary'
 
 type PagesLayoutProps = {
@@ -27,11 +28,7 @@ export const PagesLayout = ({ children }: PagesLayoutProps) => {
               {children}
               {/*<ErrorBoundary>{children}</ErrorBoundary>*/}
             </main>
-            <footer className='w-full flex items-center justify-center py-4'>
-              <span className='flex items-center gap-1 text-sm text-foreground-500'>
-                Make me strong © 2025
-              </span>
-            </footer>
+            <Footer />
           </div>
         </Providers>
       ) : (
