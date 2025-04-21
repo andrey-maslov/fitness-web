@@ -3,6 +3,31 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { Metadata } from 'next'
+import { siteConfig } from '@/config/site'
+import Script from 'next/script'
+
+export const metadata: Metadata = {
+  title: `${siteConfig.name} – Фитнес-калькуляторы онлайн`,
+  description: siteConfig.description,
+  metadataBase: new URL(siteConfig.url),
+  keywords: ['фитнес', 'калькулятор', 'калории', '1ПМ', 'ИМТ', 'тренировки', 'здоровье'],
+  openGraph: {
+    title: `${siteConfig.name} – Фитнес-калькуляторы`,
+    description: siteConfig.description,
+    url: siteConfig.url,
+    type: 'website',
+    images: [siteConfig.ogImages.default],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: siteConfig.name,
+    description: siteConfig.description,
+  },
+  alternates: {
+    canonical: siteConfig.url,
+  },
+}
 
 export default function HomePage() {
   return (
@@ -35,25 +60,25 @@ export default function HomePage() {
           </Card>
 
           <Card>
-            <CardContent className="p-4 space-y-2 opacity-50 cursor-not-allowed">
+            <CardContent className="p-4 space-y-2">
               <h3 className="text-lg font-medium">🔥 Калории в день</h3>
               <p className="text-sm text-muted-foreground">
                 Рассчёт базового обмена веществ (BMR) и суточной нормы.
               </p>
-              <Button size="sm" disabled>
-                Скоро
+              <Button size="sm">
+                <Link href="/calc/day-calories">Перейти</Link>
               </Button>
             </CardContent>
           </Card>
 
           <Card>
-            <CardContent className="p-4 space-y-2 opacity-50 cursor-not-allowed">
+            <CardContent className="p-4 space-y-2">
               <h3 className="text-lg font-medium">📊 BMI — индекс массы тела</h3>
               <p className="text-sm text-muted-foreground">
                 Оцени своё соотношение массы и роста.
               </p>
-              <Button size="sm" disabled>
-                Скоро
+              <Button size="sm">
+                <Link href="/calc/bmi">Перейти</Link>
               </Button>
             </CardContent>
           </Card>
@@ -79,6 +104,21 @@ export default function HomePage() {
           <Button>Подписаться</Button>
         </div>
       </section>
+
+      <Script id="jsonld-home" type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          name: siteConfig.name,
+          url: siteConfig.url,
+          description: siteConfig.description,
+          publisher: {
+            "@type": "Organization",
+            name: siteConfig.name,
+            url: siteConfig.url,
+          }
+        })}
+      </Script>
     </main>
   );
 }

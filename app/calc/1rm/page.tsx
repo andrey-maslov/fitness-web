@@ -1,25 +1,27 @@
 import OneRepMax from '@/components/one-rep-max/OneRepMax'
 import Script from 'next/script';
 import type { Metadata } from 'next';
+import { siteConfig } from '@/config/site'
 
 export const metadata: Metadata = {
-  title: 'Калькулятор 1ПМ (1RM) – Максимальный вес на одно повторение',
+  title: `Калькулятор 1ПМ (1RM) – Максимальный вес на одно повторение - ${siteConfig.name}`,
   description: 'Удобный онлайн калькулятор 1ПМ (одноповторного максимума). Рассчитайте ваш 1RM по формуле Эпли, Бжицки, Лэндера и O\'Коннора, а также получите таблицу % нагрузок.',
   keywords: ['1RM', '1ПМ', 'фитнес калькулятор', 'силовой тренинг', 'максимальный вес', 'Epley', 'Brzycki', 'Lander', 'Oconner'],
   openGraph: {
-    title: 'Калькулятор 1ПМ (1RM)',
+    title: `Калькулятор 1ПМ (1RM) - ${siteConfig.name}`,
     description: 'Рассчитайте ваш одноповторный максимум по проверенным формулам. Таблица нагрузок, график, визуализация.',
     type: 'website',
-    images: ['/og-1rm_ru.jpg'],
+    url: `${siteConfig.url}/calc/1rm`,
+    images: [siteConfig.ogImages.oneRm],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Калькулятор 1ПМ (1RM)',
     description: 'Удобный онлайн инструмент для расчета 1ПМ по формулам Эпли, Бжицки, Лэндера и O\'Коннора.',
   },
-  metadataBase: new URL('https://yourdomain.com'),
+  metadataBase: new URL(siteConfig.url),
   alternates: {
-    canonical: '/calc/1rm',
+    canonical: `${siteConfig.url}/calc/1rm`,
   },
 };
 
@@ -53,11 +55,11 @@ export default function OneRepMaxPage() {
           "@type": "WebPage",
           "name": "Калькулятор 1ПМ (1RM)",
           "description": "Удобный онлайн калькулятор одноповторного максимума. Поддержка формул Epley, Brzycki, Lander и O'Conner. График и таблица % нагрузок.",
-          "url": "https://yourdomain.com/calc/1rm",
+          "url": `${siteConfig.url}/calc/1rm`,
           "publisher": {
             "@type": "Organization",
-            "name": "FitnessCalc",
-            "url": "https://yourdomain.com"
+            "name": siteConfig.name,
+            "url": siteConfig.url
           }
         })}
       </Script>
