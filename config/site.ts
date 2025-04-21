@@ -19,5 +19,16 @@ export const siteConfig = {
     oneRm: '/og-1rm_ru.jpg',
     bmi: '/og-bmi.jpg',
     dayCalories: '/day-calories.jpg',
-  }
+  },
+
+  navItemsTopMenu: [
+    {
+      label: 'Trainings',
+      href: '/trainings',
+    },
+    {
+      label: 'Profile',
+      href: '/user-profile',
+    },
+  ]
 }
