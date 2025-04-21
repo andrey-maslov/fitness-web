@@ -1,4 +1,4 @@
-"use client"
+'use client'
 
 import { useForm, useFieldArray } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
@@ -15,6 +15,7 @@ import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { Button } from '@/components/ui/button'
 import { SetsField } from '@/components/workout/SetsField'
+import { MongoIdType } from '@/types/types'
 
 const workoutSchema = z.object({
   date: z.string().nonempty('Выберите дату'),
@@ -40,7 +41,11 @@ const workoutSchema = z.object({
 
 export type WorkoutFormValues = z.infer<typeof workoutSchema>
 
-export function NewWorkoutForm() {
+interface Props {
+  cycleId: MongoIdType | null
+}
+
+export function NewWorkoutForm({ cycleId }: Props) {
   const form = useForm<WorkoutFormValues>({
     resolver: zodResolver(workoutSchema),
     defaultValues: {
