@@ -1,9 +1,11 @@
 import { Types } from 'mongoose'
 
+export type  MongoIdType = Types.ObjectId | string
+
 export type TrainingCycle = {
-  _id: Types.ObjectId | string
-  userId: Types.ObjectId | string // ссылка на владельца цикла (клиента)
-  trainerId: Types.ObjectId | string // при необходимости, если нужно хранить, кто тренер
+  _id: MongoIdType
+  userId: MongoIdType // ссылка на владельца цикла (клиента)
+  trainerId: MongoIdType // при необходимости, если нужно хранить, кто тренер
   title: string
   comment: string
   startDate: Date
@@ -26,10 +28,10 @@ export type Exercise = {
 }
 
 export type Workout = {
-  _id: Types.ObjectId | string
-  cycleId: Types.ObjectId | string | null // ссылка на тренировочный цикл (может быть null, если юзер не в цикле)
-  userId: Types.ObjectId | string // кто выполнял
-  trainerId: Types.ObjectId | string
+  _id: MongoIdType
+  cycleId: MongoIdType | null // ссылка на тренировочный цикл (может быть null, если юзер не в цикле)
+  userId: MongoIdType // кто выполнял
+  trainerId: MongoIdType
   date: Date
   title: string // «Грудь + Бицепс», «Ноги» – как назовёт
   comment: string // общие заметки о тренировке

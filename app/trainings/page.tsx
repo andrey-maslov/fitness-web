@@ -11,8 +11,9 @@ import {
 } from '@/components/ui/card'
 import { mockTrainingCycles, mockWorkouts } from '@/app/data/mocks'
 import { getFormattedDate } from '@/lib/date'
-import { WorkoutComponent } from '@/components/Workout'
+import { WorkoutComponent } from '@/components/workout/Workout'
 import { Workout } from '@/types/types'
+import { NewWorkoutModal } from '@/components/workout/NewWorkoutModal'
 
 export const metadata = {
   title: 'My trips-page',
@@ -49,12 +50,12 @@ export default async function TripsPageTemplate() {
                       />
                     )
                   } else {
-                    return null;
+                    return null
                   }
                 })}
               </CardContent>
               <CardFooter>
-                <Button variant='outline'>Add new workout</Button>
+                <NewWorkoutModal cycleId={cycle._id} />
               </CardFooter>
             </Card>
           ))}
