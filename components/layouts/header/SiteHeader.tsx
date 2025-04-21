@@ -42,7 +42,7 @@ export const SiteHeader = () => {
           </SignedIn>
         </SheetContent>
       </Sheet>
-      <Link href='#' className='mr-6 hidden lg:flex' prefetch={false}>
+      <Link href='/' className='mr-6 hidden lg:flex' prefetch={false}>
         <MountainIcon className='h-6 w-6' />
         <span className='sr-only'>Make me strong</span>
       </Link>
