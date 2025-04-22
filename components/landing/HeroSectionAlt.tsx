@@ -13,7 +13,7 @@ export default function HeroSectionAlt() {
   return (
     <>
       <div className='relative container mx-auto px-4 md:px-6 2xl:max-w-[1400px]'>
-        <div className='grid gap-6 pt-12 pb-8 md:pt-16 md:pb-12 lg:grid-cols-2 lg:pt-20 lg:pb-16'>
+        <div className='grid gap-6 py-3 md:pt-16 md:pb-12 lg:grid-cols-2 lg:pt-20 lg:pb-16'>
           <div className='flex flex-col justify-center space-y-8'>
             <div>
               <a

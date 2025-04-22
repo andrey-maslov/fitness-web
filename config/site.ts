@@ -23,13 +23,17 @@ export const siteConfig = {
 
   navItemsTopMenu: [
     {
-      label: 'Trainings',
-      href: '/trainings',
+      label: '1RM — максимум на 1 повтор',
+      href: '/calc/1rm',
     },
     {
-      label: 'Profile',
-      href: '/user-profile',
+      label: 'BMI — индекс массы тела',
+      href: '/calc/bmi',
     },
+    {
+      label: 'Калории на день',
+      href: '/calc/day-calories',
+    }
   ],
 
   footerNavMenu: [
