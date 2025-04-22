@@ -1,4 +1,4 @@
-'use clients'
+'use client'
 import { usePlausible } from 'next-plausible'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'

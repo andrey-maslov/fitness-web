@@ -80,7 +80,7 @@ export default function CalculatorsSection() {
           >
             <CardHeader>
               <div className='p-2 w-12 h-12 rounded-lg bg-orange-100 flex items-center justify-center mb-4'>
-                <item.icon className='text-primary' size='lg' />
+                <item.icon className='text-primary' size={36} />
               </div>
               <CardTitle className='leading-none font-semibold'>
                 {item.title}

@@ -1,7 +1,5 @@
 import { HeroSectionFigures } from '@/components/landing/HeroSectionFigures'
 import { CheckCheck, ChevronRight } from 'lucide-react'
-import { Button } from '@/components/ui/button'
-import Link from 'next/link'
 import { HeroButtons } from '@/components/landing/HeroButtons'
 
 const features = [
