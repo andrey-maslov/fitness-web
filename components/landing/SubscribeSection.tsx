@@ -1,22 +1,9 @@
-import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'
-import { ArrowRight } from 'lucide-react'
 import { SubscribeForm } from '@/components/SubscribeForm'
-
-const topics = [
-  'Здоровье',
-  'Сила и форма',
-  'Прогресс',
-  'Советы и гайды',
-  'Мотивация',
-  'Осознанность',
-]
+import { SubscribeSectionTags } from '@/components/landing/SubscribeSectionTags'
 
 export default function SubscribeSection() {
   return (
     <>
-      {/* Hero */}
       <div className='relative overflow-hidden'>
         <div className='container mx-auto px-4 py-24 md:px-6 lg:py-32 2xl:max-w-[1400px]'>
           <div className='text-center'>
@@ -30,16 +17,11 @@ export default function SubscribeSection() {
             </p>
             <SubscribeForm />
             <div className='mt-10 flex flex-wrap justify-center gap-2 sm:mt-20'>
-              {topics.map((topic) => (
-                <Button key={topic} variant='outline'>
-                  {topic}
-                </Button>
-              ))}
+              <SubscribeSectionTags />
             </div>
           </div>
         </div>
       </div>
-      {/* End Hero */}
     </>
   )
 }
