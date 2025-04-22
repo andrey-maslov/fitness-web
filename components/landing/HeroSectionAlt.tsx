@@ -2,6 +2,7 @@ import { HeroSectionFigures } from '@/components/landing/HeroSectionFigures'
 import { CheckCheck, ChevronRight } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
+import { HeroButtons } from '@/components/landing/HeroButtons'
 
 const features = [
   'Проверенные формулы расчёта',
@@ -10,6 +11,7 @@ const features = [
 ]
 
 export default function HeroSectionAlt() {
+
   return (
     <>
       <div className='relative container mx-auto px-4 md:px-6 2xl:max-w-[1400px]'>
@@ -46,12 +48,7 @@ export default function HeroSectionAlt() {
               ))}
             </ul>
             <div className='flex flex-col gap-3 sm:flex-row'>
-              <Button size={'lg'} color="primary" asChild>
-                <Link href="/#calculators">Перейти к калькуляторам</Link>
-              </Button>
-              {/*<Button size={'lg'} variant={'outline'}>*/}
-              {/*  Узнать больше*/}
-              {/*</Button>*/}
+              <HeroButtons />
             </div>
           </div>
           <HeroSectionFigures />

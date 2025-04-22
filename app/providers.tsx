@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { PropsWithChildren } from 'react'
 import { ClerkProvider } from '@clerk/nextjs'
+import PlausibleProvider from 'next-plausible'
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -21,8 +22,10 @@ export function Providers({ children }: PropsWithChildren<ProvidersProps>) {
   const router = useRouter()
 
   return (
-    <ClerkProvider>
+    // <ClerkProvider>
+    <PlausibleProvider domain='makemestrong.fit'>
       <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
-    </ClerkProvider>
+    </PlausibleProvider>
+    // </ClerkProvider>
   )
 }
