@@ -39,7 +39,7 @@ const features = [
 
 export default function Features() {
   return (
-    <section className='container mx-auto space-y-8 px-4 py-24 md:px-6 2xl:max-w-[1400px]'>
+    <>
       <div className='space-y-4 text-center'>
         <h2 className='text-3xl font-bold'>
           Почему калькулятор, а не ChatGPT?
@@ -64,6 +64,6 @@ export default function Features() {
           </Card>
         ))}
       </div>
-    </section>
+    </>
   )
 }

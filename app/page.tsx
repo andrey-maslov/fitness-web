@@ -7,10 +7,11 @@ import { Metadata } from 'next'
 import { siteConfig } from '@/config/site'
 import Script from 'next/script'
 import HeroSection from '@/components/landing/HeroSection'
-import EmailForm from '@/components/landing/EmailForm'
+import SubscribeSection from '@/components/landing/SubscribeSection'
 import Features from '@/components/landing/Features'
 import CTASection from '@/components/landing/CTASection'
 import CalculatorsSection from '@/components/landing/CalculatorsSection'
+import HeroSectionAlt from '@/components/landing/HeroSectionAlt'
 
 export const metadata: Metadata = {
   title: `${siteConfig.name} – Фитнес-калькуляторы онлайн`,
@@ -45,17 +46,27 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <main className=''>
-      <HeroSection />
+      {/*<HeroSection />*/}
+      <HeroSectionAlt />
 
-      <CalculatorsSection />
+      <section
+        id='calculators'
+        className='container mx-auto space-y-8 px-4 py-24 md:px-6 2xl:max-w-[1400px]'
+      >
+        <CalculatorsSection />
+      </section>
 
-      <CTASection />
+      {/*<CTASection />*/}
 
       {/* Why not ChatGPT Section */}
-      <Features />
+      <section className='container mx-auto space-y-8 px-4 py-24 md:px-6 2xl:max-w-[1400px]'>
+        <Features />
+      </section>
 
       {/* Subscribe section */}
-      <EmailForm />
+      <div id='subscribe'>
+        <SubscribeSection />
+      </div>
 
       <Script id='jsonld-home' type='application/ld+json'>
         {JSON.stringify({

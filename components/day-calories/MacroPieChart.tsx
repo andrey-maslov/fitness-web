@@ -1,12 +1,7 @@
-import { Pie } from 'react-chartjs-2';
-import {
-  Chart as ChartJS,
-  ArcElement,
-  Tooltip,
-  Legend,
-} from 'chart.js';
+import { Pie } from 'react-chartjs-2'
+import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js'
 
-ChartJS.register(ArcElement, Tooltip, Legend);
+ChartJS.register(ArcElement, Tooltip, Legend)
 
 interface Props {
   protein: number
@@ -25,11 +20,10 @@ export const MacroPieChart = ({ protein, fat, carbs }: Props) => {
         borderWidth: 1,
       },
     ],
-  };
-
+  }
 
   return (
-    <div className="">
+    <div className=''>
       <Pie data={macroChartData} />
     </div>
   )

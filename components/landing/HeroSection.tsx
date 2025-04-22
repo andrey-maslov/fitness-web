@@ -7,16 +7,14 @@ export default function HeroSection() {
       {/* Hero */}
       <div>
         <div className='container mx-auto px-4 py-24 md:px-6 lg:py-32 2xl:max-w-[1400px] relative'>
-
           {/* Announcement Banner */}
           <div className='flex justify-center'>
             <a
               className='inline-flex items-center gap-x-2 rounded-full border p-1 ps-3 text-sm transition'
-              href='#'
+              href='/#subscribe'
             >
               PRO версия - записаться в лист ожидания
-              <span
-                className='bg-muted-foreground/15 inline-flex items-center justify-center gap-x-2 rounded-full px-2.5 py-1.5 text-sm font-semibold'>
+              <span className='bg-muted-foreground/15 inline-flex items-center justify-center gap-x-2 rounded-full px-2.5 py-1.5 text-sm font-semibold'>
                 <svg
                   className='h-4 w-4 flex-shrink-0'
                   xmlns='http://www.w3.org/2000/svg'
@@ -56,34 +54,6 @@ export default function HeroSection() {
             </Button>
           </div>
           {/* End Buttons */}
-          <div className='mt-10 flex items-center justify-center gap-x-1 sm:gap-x-3'>
-            <span className='text-muted-foreground text-sm'>
-              Package Manager:
-            </span>
-            <span className='text-sm font-bold'>npm </span>
-            <svg
-              className='text-muted-foreground h-5 w-5'
-              width={16}
-              height={16}
-              viewBox='0 0 16 16'
-              fill='none'
-              xmlns='http://www.w3.org/2000/svg'
-              aria-hidden='true'
-            >
-              <path
-                d='M6 13L10 3'
-                stroke='currentColor'
-                strokeLinecap='round'
-              />
-            </svg>
-            <a
-              className='inline-flex items-center gap-x-1 text-sm font-medium decoration-2 hover:underline'
-              href='#'
-            >
-              Installation Guide
-              <ChevronRightIcon className='h-4 w-4 flex-shrink-0' />
-            </a>
-          </div>
         </div>
       </div>
       {/* End Hero */}

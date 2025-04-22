@@ -32,7 +32,10 @@ export const OneRepMaxBarChart = ({ percentages, base1RM }: Props) => {
     responsive: true,
     plugins: {
       legend: { display: false },
-      title: { display: true, text: `Нагрузка в зависимости от % 1ПМ (${base1RM} кг)` },
+      title: {
+        display: true,
+        text: `Нагрузка в зависимости от % 1ПМ (${base1RM} кг)`,
+      },
     },
   }
 

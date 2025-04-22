@@ -17,7 +17,9 @@ export const NewWorkoutModal = ({ cycleId }: Props) => {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button color="cyan" variant='outline'>Add workout</Button>
+        <Button color='cyan' variant='outline'>
+          Add workout
+        </Button>
       </DialogTrigger>
       <DialogContent className='sm:max-w-[425px]'>
         <DialogHeader>

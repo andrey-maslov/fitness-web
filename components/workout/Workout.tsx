@@ -7,8 +7,8 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card'
-import { ChevronsUpDown } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import { ChevronsUpDown } from 'lucide-react'
+import { Button } from '@/components/ui/button'
 import {
   Collapsible,
   CollapsibleContent,
@@ -27,17 +27,14 @@ export const WorkoutComponent = ({ workout }: Props) => {
 
   return (
     <Card className='mb-2'>
-      <Collapsible
-        open={isOpen}
-        onOpenChange={setIsOpen}
-      >
+      <Collapsible open={isOpen} onOpenChange={setIsOpen}>
         <CardHeader>
           <CardTitle className='flex items-center justify-between'>
             <span className='text-lg'>{workout.title}</span>
             <CollapsibleTrigger asChild>
-              <Button variant="ghost" size="sm">
-                <ChevronsUpDown className="h-4 w-4" />
-                <span className="sr-only">Toggle</span>
+              <Button variant='ghost' size='sm'>
+                <ChevronsUpDown className='h-4 w-4' />
+                <span className='sr-only'>Toggle</span>
               </Button>
             </CollapsibleTrigger>
           </CardTitle>

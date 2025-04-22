@@ -44,32 +44,40 @@ export default function DayCaloriesCalculator() {
 
   const values = form.watch()
 
-  const isValid = values.age && values.weight && values.height && values.activity && values.gender;
+  const isValid =
+    values.age &&
+    values.weight &&
+    values.height &&
+    values.activity &&
+    values.gender
 
-  let bmr = 0;
+  let bmr = 0
   if (isValid) {
-    const method = values.method || (values.bodyFat ? 'katch' : 'mifflin');
+    const method = values.method || (values.bodyFat ? 'katch' : 'mifflin')
     const lbm = values.bodyFat
       ? values.weight * (1 - values.bodyFat / 100)
-      : undefined;
+      : undefined
 
     if (method === 'katch' && lbm !== undefined) {
-      bmr = 370 + 21.6 * lbm;
+      bmr = 370 + 21.6 * lbm
     } else {
-      const base =
-        10 * values.weight + 6.25 * values.height - 5 * values.age;
-      bmr = values.gender === 'male' ? base + 5 : base - 161;
+      const base = 10 * values.weight + 6.25 * values.height - 5 * values.age
+      bmr = values.gender === 'male' ? base + 5 : base - 161
     }
   }
 
-  const totalCalories = isValid ? Math.round(bmr * activityFactors[values.activity]) : 0;
-  const caloriesMaintain = totalCalories;
-  const caloriesCut = isValid ? Math.round(totalCalories * 0.8) : 0;
-  const caloriesBulk = isValid ? Math.round(totalCalories * 1.2) : 0;
+  const totalCalories = isValid
+    ? Math.round(bmr * activityFactors[values.activity])
+    : 0
+  const caloriesMaintain = totalCalories
+  const caloriesCut = isValid ? Math.round(totalCalories * 0.8) : 0
+  const caloriesBulk = isValid ? Math.round(totalCalories * 1.2) : 0
 
-  const protein = isValid ? Math.round(values.weight * 2) : 0; // 2g per kg bodyweight
-  const fat = isValid ? Math.round((totalCalories * 0.25) / 9) : 0;
-  const carbs = isValid ? Math.round((totalCalories - (protein * 4 + fat * 9)) / 4) : 0;
+  const protein = isValid ? Math.round(values.weight * 2) : 0 // 2g per kg bodyweight
+  const fat = isValid ? Math.round((totalCalories * 0.25) / 9) : 0
+  const carbs = isValid
+    ? Math.round((totalCalories - (protein * 4 + fat * 9)) / 4)
+    : 0
 
   return (
     <form className='space-y-6' onSubmit={(e) => e.preventDefault()}>
@@ -140,20 +148,22 @@ export default function DayCaloriesCalculator() {
         />
       </div>
 
-      <div className="mt-4">
+      <div className='mt-4'>
         <Label>Формула расчета</Label>
         <RadioGroup
           value={values.method}
-          onValueChange={(v) => form.setValue('method', v as 'mifflin' | 'katch')}
-          className="flex gap-4"
+          onValueChange={(v) =>
+            form.setValue('method', v as 'mifflin' | 'katch')
+          }
+          className='flex gap-4'
         >
-          <div className="flex items-center gap-2">
-            <RadioGroupItem value="mifflin" id="mifflin" />
-            <Label htmlFor="mifflin">Mifflin-St Jeor</Label>
+          <div className='flex items-center gap-2'>
+            <RadioGroupItem value='mifflin' id='mifflin' />
+            <Label htmlFor='mifflin'>Mifflin-St Jeor</Label>
           </div>
-          <div className="flex items-center gap-2">
-            <RadioGroupItem value="katch" id="katch" />
-            <Label htmlFor="katch">Katch-McArdle</Label>
+          <div className='flex items-center gap-2'>
+            <RadioGroupItem value='katch' id='katch' />
+            <Label htmlFor='katch'>Katch-McArdle</Label>
           </div>
         </RadioGroup>
       </div>
@@ -166,30 +176,58 @@ export default function DayCaloriesCalculator() {
           </div>
 
           <div className='text-sm text-muted-foreground'>
-            Расчёт по формуле: <strong>{values.method === 'katch' ? 'Katch-McArdle' : 'Mifflin-St Jeor'}</strong>
+            Расчёт по формуле:{' '}
+            <strong>
+              {values.method === 'katch' ? 'Katch-McArdle' : 'Mifflin-St Jeor'}
+            </strong>
           </div>
           <div className='space-y-4'>
             <div className='text-sm text-muted-foreground'>
-              <p><strong>Поддержание:</strong> {caloriesMaintain} ккал</p>
-              <p><strong>Похудение (–20%):</strong> {caloriesCut} ккал</p>
-              <p><strong>Набор массы (+20%):</strong> {caloriesBulk} ккал</p>
+              <p>
+                <strong>Поддержание:</strong> {caloriesMaintain} ккал
+              </p>
+              <p>
+                <strong>Похудение (–20%):</strong> {caloriesCut} ккал
+              </p>
+              <p>
+                <strong>Набор массы (+20%):</strong> {caloriesBulk} ккал
+              </p>
             </div>
 
             <div className='text-sm text-muted-foreground'>
               <h3 className='font-semibold mb-1'>Рекомендации по БЖУ:</h3>
-              <p><strong>Белки:</strong> {protein} г</p>
-              <p><strong>Жиры:</strong> {fat} г</p>
-              <p><strong>Углеводы:</strong> {carbs} г</p>
+              <p>
+                <strong>Белки:</strong> {protein} г
+              </p>
+              <p>
+                <strong>Жиры:</strong> {fat} г
+              </p>
+              <p>
+                <strong>Углеводы:</strong> {carbs} г
+              </p>
             </div>
           </div>
           <div className='max-w-xs mx-auto'>
             <MacroPieChart protein={protein} fat={fat} carbs={carbs} />
           </div>
-          <div className="space-y-2 text-muted-foreground text-sm">
-            <p><strong>Как использовать результат:</strong> эта цифра — ваша ориентировочная суточная норма калорий для поддержания текущего веса.</p>
-            <p>Если вы хотите <strong>похудеть</strong>, рекомендуется создать дефицит ~10–20% от этой нормы.</p>
-            <p>Если вы хотите <strong>набрать массу</strong>, наоборот, увеличьте потребление на ~10–20%.</p>
-            <p>Не забудьте учитывать цели, тренировочный объём и индивидуальные особенности организма.</p>
+          <div className='space-y-2 text-muted-foreground text-sm'>
+            <p>
+              <strong>Как использовать результат:</strong> эта цифра — ваша
+              ориентировочная суточная норма калорий для поддержания текущего
+              веса.
+            </p>
+            <p>
+              Если вы хотите <strong>похудеть</strong>, рекомендуется создать
+              дефицит ~10–20% от этой нормы.
+            </p>
+            <p>
+              Если вы хотите <strong>набрать массу</strong>, наоборот, увеличьте
+              потребление на ~10–20%.
+            </p>
+            <p>
+              Не забудьте учитывать цели, тренировочный объём и индивидуальные
+              особенности организма.
+            </p>
           </div>
         </>
       )}

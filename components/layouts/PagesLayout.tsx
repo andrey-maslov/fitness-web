@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react'
 
 import { Providers } from '@/app/providers'
-import {SiteHeader} from "@/components/layouts/header/SiteHeader";
+import { SiteHeader } from '@/components/layouts/header/SiteHeader'
 import Footer from '@/components/layouts/Footer'
 // import ErrorBoundary from '@/components/ErrorBoundary'
 
