@@ -1,7 +1,6 @@
 import {
   BicepsFlexed,
   ChartColumnBig,
-  ArrowRightIcon,
   Flame,
   LucideFootprints,
   LucideDroplets,
@@ -14,18 +13,16 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card'
-import { Button } from '@/components/ui/button'
-import Link from 'next/link'
 import { CalculatorsSectionButton } from '@/components/landing/CalculatorsSectionButton'
 
-const features = [
+export const calculators = [
   {
     icon: BicepsFlexed,
     type: '1rm',
     title: '1RM — максимум на 1 повтор',
     description:
       'Узнай, какой вес ты можешь поднять за один раз. Быстро, безопасно и без необходимости пробовать вживую.',
-    url: '/calc/1rm',
+    href: '/calc/1rm',
   },
   {
     icon: Flame,
@@ -33,7 +30,7 @@ const features = [
     title: 'Калории в день',
     description:
       'Рассчитай, сколько калорий тебе нужно в день для похудения, поддержания или набора массы — с учётом активности и целей.',
-    url: '/calc/day-calories',
+    href: '/calc/day-calories',
   },
   {
     icon: ChartColumnBig,
@@ -41,7 +38,7 @@ const features = [
     title: 'BMI — индекс массы тела',
     description:
       'Узнай свой ИМТ и получи оценку состояния массы тела по шкале ВОЗ: от дефицита до ожирения.',
-    url: '/calc/bmi',
+    href: '/calc/bmi',
   },
   {
     icon: LucideFootprints,
@@ -49,7 +46,7 @@ const features = [
     title: 'FFMI — индекс мышечной массы',
     description:
       'Определи, насколько развито твоё тело с учётом роста и процента жира. Подходит для оценки натуралов.',
-    url: '/calc/ffmi',
+    href: '/calc/ffmi',
   },
   {
     icon: LucideDroplets,
@@ -57,7 +54,7 @@ const features = [
     title: 'Потребление воды',
     description:
       'Рассчитай, сколько воды нужно пить ежедневно — в зависимости от массы тела и активности.',
-    url: '/calc/water',
+    href: '/calc/water',
   },
   {
     icon: LucideUtensils,
@@ -65,7 +62,7 @@ const features = [
     title: 'Распределение БЖУ',
     description:
       'Сбалансируй белки, жиры и углеводы в зависимости от цели: похудение, набор или поддержание.',
-    url: '/calc/macros',
+    href: '/calc/macros',
   },
 ]
 
@@ -81,7 +78,7 @@ export default function CalculatorsSection() {
       </div>
 
       <div className='grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3'>
-        {features.map((item) => (
+        {calculators.map((item) => (
           <Card
             key={item.title}
             // className='flex flex-col gap-6 rounded-xl py-6 shadow-sm'
@@ -98,7 +95,7 @@ export default function CalculatorsSection() {
               {item.description}
             </CardContent>
             <CardFooter>
-              <CalculatorsSectionButton url={item.url} type={item.type} />
+              <CalculatorsSectionButton url={item.href} type={item.type} />
             </CardFooter>
           </Card>
         ))}
