@@ -2,7 +2,7 @@ import connectMongo from '@/lib/db/connectMongo'
 import { EmailSubscriber } from '@/schemas/EmailSubscriber.schema'
 import { NextResponse } from 'next/server'
 
-export async function POST(request: Request, response: Response) {
+export async function POST(request: Request) {
   const { email, source } = await request.json()
 
   if (!email) {
