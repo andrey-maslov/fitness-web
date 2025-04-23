@@ -1,6 +1,5 @@
 import connectMongo from '@/lib/db/connectMongo'
 import { EmailSubscriber } from '@/schemas/EmailSubscriber.schema'
-import { NextResponse } from 'next/server'
 
 export async function POST(request: Request) {
   const { email, source } = await request.json()
@@ -14,7 +13,7 @@ export async function POST(request: Request) {
   try {
     await EmailSubscriber.create({ email, source })
 
-    return NextResponse.json({ message: 'Subscribed locally' })
+    return Response.json({ message: 'Subscribed locally' })
   } catch (error: any) {
     if (error.code === 11000) {
       return new Response('Email already subscribed', { status: 409 })
