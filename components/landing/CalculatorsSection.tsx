@@ -16,10 +16,12 @@ import {
 } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
+import { CalculatorsSectionButton } from '@/components/landing/CalculatorsSectionButton'
 
 const features = [
   {
     icon: BicepsFlexed,
+    type: '1rm',
     title: '1RM — максимум на 1 повтор',
     description:
       'Узнай, какой вес ты можешь поднять за один раз. Быстро, безопасно и без необходимости пробовать вживую.',
@@ -27,6 +29,7 @@ const features = [
   },
   {
     icon: Flame,
+    type: 'day-calories',
     title: 'Калории в день',
     description:
       'Рассчитай, сколько калорий тебе нужно в день для похудения, поддержания или набора массы — с учётом активности и целей.',
@@ -34,6 +37,7 @@ const features = [
   },
   {
     icon: ChartColumnBig,
+    type: 'bmi',
     title: 'BMI — индекс массы тела',
     description:
       'Узнай свой ИМТ и получи оценку состояния массы тела по шкале ВОЗ: от дефицита до ожирения.',
@@ -41,6 +45,7 @@ const features = [
   },
   {
     icon: LucideFootprints,
+    type: 'ffmi',
     title: 'FFMI — индекс мышечной массы',
     description:
       'Определи, насколько развито твоё тело с учётом роста и процента жира. Подходит для оценки натуралов.',
@@ -48,6 +53,7 @@ const features = [
   },
   {
     icon: LucideDroplets,
+    type: 'water',
     title: 'Потребление воды',
     description:
       'Рассчитай, сколько воды нужно пить ежедневно — в зависимости от массы тела и активности.',
@@ -55,6 +61,7 @@ const features = [
   },
   {
     icon: LucideUtensils,
+    type: 'macros',
     title: 'Распределение БЖУ',
     description:
       'Сбалансируй белки, жиры и углеводы в зависимости от цели: похудение, набор или поддержание.',
@@ -68,7 +75,8 @@ export default function CalculatorsSection() {
       <div className='space-y-4 text-center'>
         <h2 className='text-3xl font-bold'>Доступные калькуляторы</h2>
         <p className='text-muted-foreground mx-auto max-w-2xl'>
-          Онлайн-калькуляторы, которые помогут вам тренироваться эффективнее, питаться осознанно и достигать целей быстрее.
+          Онлайн-калькуляторы, которые помогут вам тренироваться эффективнее,
+          питаться осознанно и достигать целей быстрее.
         </p>
       </div>
 
@@ -90,11 +98,7 @@ export default function CalculatorsSection() {
               {item.description}
             </CardContent>
             <CardFooter>
-              <Button asChild size='sm' variant='ghost'>
-                <Link href={item.url}>
-                  Перейти <ArrowRightIcon />
-                </Link>
-              </Button>
+              <CalculatorsSectionButton url={item.url} type={item.type} />
             </CardFooter>
           </Card>
         ))}

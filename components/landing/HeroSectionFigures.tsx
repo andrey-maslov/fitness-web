@@ -34,7 +34,7 @@ export const HeroSectionFigures = () => {
           <div className='animate-bounce-slow absolute -bottom-12 left-4 h-7 w-7 rounded-full bg-green-400 shadow-lg delay-100'></div>
           <div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 translate-z-24 transform'>
             <div className='bg-background flex h-16 w-16 items-center justify-center rounded-2xl shadow-xl'>
-              <Calculator size={36} className="text-purple-600" />
+              <Calculator size={36} className='text-purple-600' />
             </div>
           </div>
         </div>

@@ -1,4 +1,4 @@
-import { SubscribeForm } from '@/components/SubscribeForm'
+import { SubscriptionForm } from '@/components/SubscriptionForm'
 import { SubscribeSectionTags } from '@/components/landing/SubscribeSectionTags'
 
 export default function SubscribeSection() {
@@ -15,7 +15,7 @@ export default function SubscribeSection() {
               статьях и инструментах для вашего прогресса в тренировках,
               здоровье и питании.
             </p>
-            <SubscribeForm />
+            <SubscriptionForm source='landing' />
             <div className='mt-10 flex flex-wrap justify-center gap-2 sm:mt-20'>
               <SubscribeSectionTags />
             </div>

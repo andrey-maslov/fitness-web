@@ -4,7 +4,7 @@ import Script from 'next/script'
 import SubscribeSection from '@/components/landing/SubscribeSection'
 import Features from '@/components/landing/Features'
 import CalculatorsSection from '@/components/landing/CalculatorsSection'
-import HeroSectionAlt from '@/components/landing/HeroSectionAlt'
+import HeroSection from '@/components/landing/HeroSection'
 
 export const metadata: Metadata = {
   title: `${siteConfig.name} – Фитнес-калькуляторы онлайн`,
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <main className=''>
-      <HeroSectionAlt />
+      <HeroSection />
 
       <section
         id='calculators'

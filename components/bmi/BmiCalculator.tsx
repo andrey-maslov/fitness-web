@@ -7,6 +7,8 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { cn } from '@/lib/utils'
 import { BmiScaleBar } from '@/components/bmi/BmiScaleBar'
+import { useEffect } from 'react'
+import { usePlausible } from 'next-plausible'
 
 const bmiSchema = z.object({
   weight: z.coerce.number().min(30).max(200),
@@ -26,6 +28,12 @@ const getBmiCategory = (bmi: number) => {
 }
 
 export const BmiCalculator = () => {
+  const plausible = usePlausible()
+
+  useEffect(() => {
+    plausible('calc_open', { props: { type: 'bmi' } })
+  }, [])
+
   const form = useForm<BmiForm>({
     resolver: zodResolver(bmiSchema),
     defaultValues: {

@@ -1,4 +1,4 @@
-import { SubscribeForm } from '@/components/SubscribeForm'
+import { SubscriptionForm } from '@/components/SubscriptionForm'
 
 export default function ComingSoon() {
   return (
@@ -8,7 +8,7 @@ export default function ComingSoon() {
         Этот калькулятор находится в разработке. Подпишитесь на обновления,
         чтобы узнать о запуске первым.
       </p>
-      <SubscribeForm />
+      <SubscriptionForm source='coming_soon' />
     </main>
   )
 }
