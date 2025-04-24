@@ -1,5 +1,6 @@
 export const siteConfig = {
   name: 'MakeMeStrong',
+  title: "MakeMeStrong - Фитнес-калькуляторы онлайн",
   description: 'Фитнес-калькуляторы и инструменты для улучшения тела и силы.',
   url: 'https://makemestrong.fit', // базовый домен
 
@@ -39,7 +40,7 @@ export const siteConfig = {
   footerNavMenu: [
     {
       label: 'Правила',
-      href: '/terms-and-conditions',
+      href: '/terms-of-use',
     },
     {
       label: 'Контакт',

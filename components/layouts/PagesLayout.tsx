@@ -24,7 +24,7 @@ export const PagesLayout = ({ children }: PagesLayoutProps) => {
         <Providers>
           <div className='relative flex flex-col h-screen max-w-[100%]'>
             <SiteHeader />
-            <main className='container mx-auto max-w-7xl py-8 xl:py-16 px-4 xl:px-6 flex-grow'>
+            <main className='container mx-auto max-w-7xl py-8 xl:py-16 flex-grow'>
               {children}
               {/*<ErrorBoundary>{children}</ErrorBoundary>*/}
             </main>

@@ -42,8 +42,8 @@ export const SubscriptionForm = ({ source }: Props) => {
   return (
     <div className='relative mx-auto mt-7 max-w-xl sm:mt-12'>
       <form onSubmit={handleSubmit}>
-        <div className='bg-background relative z-10 flex space-x-3 rounded-lg border p-3 shadow-lg'>
-          <div className='flex-[1_0_0%]'>
+        <div className='bg-background relative z-10 flex flex-col md:flex-row space-x-3 rounded-lg border p-3 shadow-lg'>
+          <div className='flex-[1_0_0%] mb-3 md:mb-0'>
             <Label htmlFor='email' className='sr-only'>
               Ввести email
             </Label>
@@ -59,7 +59,7 @@ export const SubscriptionForm = ({ source }: Props) => {
             />
           </div>
           <div className='flex-[0_0_auto]'>
-            <Button type='submit'>
+            <Button type='submit' className="w-full">
               Подписаться
               <ArrowRight className='size-3.5' />
             </Button>

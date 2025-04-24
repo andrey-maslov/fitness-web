@@ -6,44 +6,46 @@ import Features from '@/components/landing/Features'
 import CalculatorsSection from '@/components/landing/CalculatorsSection'
 import HeroSection from '@/components/landing/HeroSection'
 
-export const metadata: Metadata = {
-  title: `${siteConfig.name} – Фитнес-калькуляторы онлайн`,
-  description: siteConfig.description,
-  metadataBase: new URL(siteConfig.url),
-  keywords: [
-    'фитнес',
-    'калькулятор',
-    'калории',
-    '1ПМ',
-    'ИМТ',
-    'тренировки',
-    'здоровье',
-  ],
-  openGraph: {
-    title: `${siteConfig.name} – Фитнес-калькуляторы`,
-    description: siteConfig.description,
-    url: siteConfig.url,
-    type: 'website',
-    images: [siteConfig.ogImages.default],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: siteConfig.name,
-    description: siteConfig.description,
-  },
-  alternates: {
-    canonical: siteConfig.url,
-  },
+export async function generateMetadata(): Promise<Metadata> {
+  return {
+    metadataBase: new URL(siteConfig.url),
+    keywords: [
+      'фитнес',
+      'калькулятор',
+      'калории',
+      '1ПМ',
+      'ИМТ',
+      'тренировки',
+      'здоровье',
+    ],
+    openGraph: {
+      title: `${siteConfig.name} – Фитнес-калькуляторы`,
+      description: siteConfig.description,
+      url: siteConfig.url,
+      type: 'website',
+      images: [siteConfig.ogImages.default],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: siteConfig.name,
+      description: siteConfig.description,
+    },
+    alternates: {
+      canonical: siteConfig.url,
+    },
+  };
 }
 
 export default function HomePage() {
   return (
-    <main className=''>
-      <HeroSection />
+    <>
+      <section id="hero" className="container mx-auto px-4 md:px-6 2xl:max-w-[1400px]">
+        <HeroSection />
+      </section>
 
       <section
         id='calculators'
-        className='container mx-auto space-y-8 px-4 py-24 md:px-6 2xl:max-w-[1400px]'
+        className='container mx-auto space-y-8 px-4 py-10 lg:py-24 md:px-6 2xl:max-w-[1400px]'
       >
         <CalculatorsSection />
       </section>
@@ -51,12 +53,12 @@ export default function HomePage() {
       {/*<CTASection />*/}
 
       {/* Why not ChatGPT Section */}
-      <section className='container mx-auto space-y-8 px-4 py-24 md:px-6 2xl:max-w-[1400px]'>
+      <section className='container mx-auto space-y-8 px-4 py-10 lg:py-24 md:px-6 2xl:max-w-[1400px]'>
         <Features />
       </section>
 
       {/* Subscribe section */}
-      <div id='subscribe'>
+      <div id='subscribe' className="container mx-auto px-4 py-10 lg:py-24 md:px-6 lg:py-32 2xl:max-w-[1400px]">
         <SubscribeSection />
       </div>
 
@@ -74,6 +76,6 @@ export default function HomePage() {
           },
         })}
       </Script>
-    </main>
+    </>
   )
 }
