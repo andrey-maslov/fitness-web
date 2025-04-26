@@ -33,13 +33,16 @@ export async function generateMetadata(): Promise<Metadata> {
     alternates: {
       canonical: siteConfig.url,
     },
-  };
+  }
 }
 
 export default function HomePage() {
   return (
     <>
-      <section id="hero" className="container mx-auto px-4 md:px-6 2xl:max-w-[1400px]">
+      <section
+        id='hero'
+        className='container mx-auto px-4 md:px-6 2xl:max-w-[1400px]'
+      >
         <HeroSection />
       </section>
 
@@ -58,7 +61,10 @@ export default function HomePage() {
       </section>
 
       {/* Subscribe section */}
-      <div id='subscribe' className="container mx-auto px-4 py-10 lg:py-24 md:px-6 lg:py-32 2xl:max-w-[1400px]">
+      <div
+        id='subscribe'
+        className='container mx-auto px-4 py-10 lg:py-24 md:px-6 lg:py-32 2xl:max-w-[1400px]'
+      >
         <SubscribeSection />
       </div>
 

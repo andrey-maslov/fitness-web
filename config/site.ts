@@ -39,6 +39,10 @@ export const siteConfig = {
 
   footerNavMenu: [
     {
+      label: 'Конфиденциальность',
+      href: '/privacy-policy',
+    },
+    {
       label: 'Правила',
       href: '/terms-of-use',
     },

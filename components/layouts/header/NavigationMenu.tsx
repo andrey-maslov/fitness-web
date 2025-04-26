@@ -13,22 +13,21 @@ import {
 } from '@/components/ui/navigation-menu'
 import { calculators } from '@/components/landing/CalculatorsSection'
 
-const menuItems: { title: string; href: string; description: string }[] = calculators
+const menuItems: { title: string; href: string; description: string }[] =
+  calculators
 
 export function NavigationMenuComponent() {
   return (
     <NavigationMenu>
       <NavigationMenuList>
         <NavigationMenuItem>
-          <NavigationMenuTrigger className="text-lg">Калькуляторы</NavigationMenuTrigger>
+          <NavigationMenuTrigger className='text-lg'>
+            Калькуляторы
+          </NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className='grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] '>
               {menuItems.map((item) => (
-                <ListItem
-                  key={item.title}
-                  title={item.title}
-                  href={item.href}
-                >
+                <ListItem key={item.title} title={item.title} href={item.href}>
                   {item.description}
                 </ListItem>
               ))}

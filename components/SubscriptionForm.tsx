@@ -59,7 +59,7 @@ export const SubscriptionForm = ({ source }: Props) => {
             />
           </div>
           <div className='flex-[0_0_auto]'>
-            <Button type='submit' className="w-full">
+            <Button type='submit' className='w-full'>
               Подписаться
               <ArrowRight className='size-3.5' />
             </Button>
