@@ -2,25 +2,26 @@ import Script from 'next/script'
 import type { Metadata } from 'next'
 import { siteConfig } from '@/config/site'
 
+const title = `Политика конфиденциальности - ${siteConfig.name}`
+const description =
+  'Узнайте, как сервис MakeMeStrong обрабатывает и защищает ваши персональные данные. Прозрачные условия и безопасность информации.'
+
 export async function generateMetadata(): Promise<Metadata> {
   return {
-    title: `Политика конфиденциальности - ${siteConfig.name}`,
-    description:
-      'Узнайте, как сервис MakeMeStrong обрабатывает и защищает ваши персональные данные. Прозрачные условия и безопасность информации.',
+    title,
+    description,
     keywords: [],
     openGraph: {
-      title: `Политика конфиденциальности - ${siteConfig.name}`,
-      description:
-        'Узнайте, как сервис MakeMeStrong обрабатывает и защищает ваши персональные данные. Прозрачные условия и безопасность информации.',
+      title,
+      description,
       type: 'website',
       url: `${siteConfig.url}/privacy-policy`,
       images: [siteConfig.ogImages.default],
     },
     twitter: {
       card: 'summary_large_image',
-      title: 'Политика конфиденциальности',
-      description:
-        'Узнайте, как сервис MakeMeStrong обрабатывает и защищает ваши персональные данные. Прозрачные условия и безопасность информации.',
+      title,
+      description,
     },
     metadataBase: new URL(siteConfig.url),
     alternates: {
@@ -31,7 +32,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function PrivacyPage() {
   return (
-    <div className='prose max-w-2xl mx-auto py-10 px-4 prose'>
+    <div className='prose max-w-2xl mx-auto py-10 px-4'>
       <h1>Политика конфиденциальности</h1>
 
       <p>
@@ -87,9 +88,8 @@ export default async function PrivacyPage() {
         {JSON.stringify({
           '@context': 'https://schema.org',
           '@type': 'WebPage',
-          name: 'Политика конфиденциальности',
-          description:
-            'Условия сбора, хранения и использования персональных данных пользователей сервиса MakeMeStrong.',
+          name: title,
+          description,
           url: `${siteConfig.url}/privacy-policy`,
           inLanguage: 'ru',
           publisher: {

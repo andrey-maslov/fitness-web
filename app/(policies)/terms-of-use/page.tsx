@@ -6,23 +6,25 @@ export async function generateStaticParams() {
   return [{}]
 }
 
+const title = `Правила использования - ${siteConfig.name}`
+const description =
+  'Условия использования сервиса MakeMeStrong: цели, ограничения, сбор данных и юридическая информация.'
+
 export const metadata: Metadata = {
-  title: `Правила использования - ${siteConfig.name}`,
-  description:
-    'Условия использования сервиса MakeMeStrong: цели, ограничения, сбор данных и юридическая информация.',
+  title,
+  description,
   keywords: [],
   openGraph: {
-    title: `Правила использования - ${siteConfig.name}`,
-    description: '',
+    title,
+    description,
     type: 'website',
     url: `${siteConfig.url}/terms-of-use`,
     images: [siteConfig.ogImages.default],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Правила использования',
-    description:
-      'Условия использования сервиса MakeMeStrong: цели, ограничения, сбор данных и юридическая информация.',
+    title,
+    description,
   },
   metadataBase: new URL(siteConfig.url),
   alternates: {
@@ -112,9 +114,8 @@ export default async function TermsPage() {
         {JSON.stringify({
           '@context': 'https://schema.org',
           '@type': 'WebPage',
-          name: 'Правила использования',
-          description:
-            'Условия использования сервиса MakeMeStrong: цели, ограничения, сбор данных и юридическая информация.',
+          name: title,
+          description,
           url: `${siteConfig.url}/terms-of-use`,
           inLanguage: 'ru',
           publisher: {

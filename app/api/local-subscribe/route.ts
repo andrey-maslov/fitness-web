@@ -2,7 +2,7 @@ import connectMongo from '@/lib/db/connectMongo'
 import { EmailSubscriber } from '@/schemas/EmailSubscriber.schema'
 
 export async function POST(request: Request) {
-  const { email, source } = await request.json()
+  const { email, source, message } = await request.json()
 
   if (!email) {
     return new Response('Email missed', { status: 400 })
@@ -11,7 +11,7 @@ export async function POST(request: Request) {
   await connectMongo()
 
   try {
-    await EmailSubscriber.create({ email, source })
+    await EmailSubscriber.create({ email, source, message })
 
     return Response.json({ message: 'Subscribed locally' })
   } catch (error: any) {

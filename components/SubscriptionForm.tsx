@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button'
 import { ArrowRight } from 'lucide-react'
 import { usePlausible } from 'next-plausible'
 import { useState, FormEvent } from 'react'
+import { Textarea } from '@/components/ui/textarea'
 
 interface Props {
   source?: string
@@ -14,6 +15,7 @@ interface Props {
 export const SubscriptionForm = ({ source }: Props) => {
   const plausible = usePlausible()
   const [email, setEmail] = useState('')
+  const [message, setMessage] = useState('')
   const [status, setStatus] = useState<
     'idle' | 'loading' | 'success' | 'error'
   >('idle')
@@ -22,15 +24,23 @@ export const SubscriptionForm = ({ source }: Props) => {
     e.preventDefault()
     setStatus('loading')
     try {
+      const cleanMessage = message.replace(/[<>$]/g, '')
+      const body =
+        source === 'contact'
+          ? { email, source, message: cleanMessage }
+          : { email, source }
+
       const res = await fetch('/api/local-subscribe', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, source }),
+        body: JSON.stringify(body),
       })
+
       if (res.ok) {
         plausible('subscribe_success', { props: { source } })
         setStatus('success')
         setEmail('')
+        setMessage('')
       } else {
         setStatus('error')
       }
@@ -42,6 +52,21 @@ export const SubscriptionForm = ({ source }: Props) => {
   return (
     <div className='relative mx-auto mt-7 max-w-xl sm:mt-12'>
       <form onSubmit={handleSubmit}>
+        {source === 'contact' && (
+          <div className='flex flex-col mb-3 rounded-lg border p-3 shadow-lg'>
+            <Label htmlFor='message' className='mb-1'>
+              Ваше сообщение
+            </Label>
+            <Textarea
+              id='message'
+              name='message'
+              placeholder='Введите сообщение'
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+              className='h-full'
+            />
+          </div>
+        )}
         <div className='bg-background relative z-10 flex flex-col md:flex-row space-x-3 rounded-lg border p-3 shadow-lg'>
           <div className='flex-[1_0_0%] mb-3 md:mb-0'>
             <Label htmlFor='email' className='sr-only'>
@@ -60,18 +85,22 @@ export const SubscriptionForm = ({ source }: Props) => {
           </div>
           <div className='flex-[0_0_auto]'>
             <Button type='submit' className='w-full'>
-              Подписаться
+              {source === 'contact' ? 'Отправить сообщение' : 'Подписаться'}
               <ArrowRight className='size-3.5' />
             </Button>
           </div>
         </div>
       </form>
       {status === 'success' && (
-        <p className='text-green-600 mt-2'>Вы успешно подписались!</p>
+        <p className='text-green-600 mt-2 text-right'>
+          {source === 'contact'
+            ? 'Сообщение отправлено'
+            : 'Вы успешно подписались!'}
+        </p>
       )}
       {status === 'error' && (
-        <p className='text-red-600 mt-2'>
-          Ошибка при подписке. Попробуйте ещё раз.
+        <p className='text-red-600 mt-2  text-right'>
+          Ошибка:( Попробуйте ещё раз.
         </p>
       )}
       <FormSVG />
