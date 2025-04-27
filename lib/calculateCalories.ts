@@ -1,7 +1,16 @@
 import { activityFactors } from '@/config/calculators.config'
-import { CalorieForm } from '@/components/day-calories/DayCaloriesCalculator'
 
-export function calculateCalories(values: CalorieForm) {
+type ValuesType = {
+  gender: string
+  age: number
+  weight: number
+  height: number
+  activity: keyof typeof activityFactors
+  method: string
+  bodyFat: number
+}
+
+export function calculateCalories(values: ValuesType) {
   if (!values.age || !values.weight || !values.height || !values.activity)
     return null
 

@@ -38,7 +38,7 @@ export default function DayCaloriesCalculator() {
     setShowResult(true)
   }
 
-  const results = calculateCalories(values)
+  const results = calculateCalories(values as any)
 
   // console.log(form.formState?.values)
 
