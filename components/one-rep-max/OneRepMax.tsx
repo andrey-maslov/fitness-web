@@ -4,7 +4,13 @@ import { useState } from 'react'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Button } from '@/components/ui/button'
-import { OneRepMaxBarChart } from '@/components/one-rep-max/OneRepMaxBarChart'
+import {
+  Card,
+  CardHeader,
+  CardDescription,
+  CardTitle,
+  CardFooter,
+} from '@/components/ui/card'
 
 const formulas = {
   epley: {
@@ -31,36 +37,63 @@ const formulas = {
 }
 
 export default function OneRepMax() {
-  const [weight, setWeight] = useState<number>(0)
-  const [reps, setReps] = useState<number>(0)
+  const [weight, setWeight] = useState<number | null>(null)
+  const [reps, setReps] = useState<number | null>(null)
   const [chartFormula, setChartFormula] =
     useState<keyof typeof formulas>('epley')
-  const base1RM = formulas[chartFormula].calculate(weight, reps)
+  const [showResult, setShowResult] = useState(false)
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    setShowResult(true)
+  }
+
+  const base1RM =
+    weight && reps ? formulas[chartFormula].calculate(weight, reps) : null
   const percentages = [95, 90, 85, 80, 75, 70, 65, 60, 55, 50]
 
   return (
     <div>
-      <div className='grid gap-4 sm:grid-cols-2 mb-8'>
-        <div>
-          <Label className='mb-2'>Вес (кг)</Label>
-          <Input
-            type='number'
-            value={weight ?? ''}
-            onChange={(e) => setWeight(Number(e.target.value))}
-            min={1}
-          />
+      <form onSubmit={handleSubmit}>
+        <div className='grid gap-4 sm:grid-cols-2 mb-8'>
+          <div>
+            <Label className='mb-2'>Вес (кг)</Label>
+            <Input
+              type='number'
+              value={weight ?? ''}
+              onChange={(e) => setWeight(Number(e.target.value))}
+              min={1}
+            />
+          </div>
+          <div>
+            <Label className='mb-2'>Кол-во повторений</Label>
+            <Input
+              type='number'
+              value={reps ?? ''}
+              onChange={(e) => setReps(Number(e.target.value))}
+              min={1}
+              max={12}
+            />
+          </div>
         </div>
-        <div>
-          <Label className='mb-2'>Кол-во повторений</Label>
-          <Input
-            type='number'
-            value={reps ?? ''}
-            onChange={(e) => setReps(Number(e.target.value))}
-            min={1}
-            max={12}
-          />
+
+        <div className='flex gap-4 mb-8'>
+          <Button type='submit' disabled={!weight || !reps}>
+            Рассчитать
+          </Button>
+          <Button
+            type='button'
+            variant='outline'
+            onClick={() => {
+              setWeight(null)
+              setReps(null)
+              setShowResult(false)
+            }}
+          >
+            Сбросить
+          </Button>
         </div>
-      </div>
+      </form>
 
       <div className='flex flex-wrap gap-2 items-center  mb-8'>
         <Label>Формула:</Label>
@@ -76,43 +109,50 @@ export default function OneRepMax() {
         ))}
       </div>
 
-      {weight && reps ? (
+      {showResult && weight && reps ? (
         <>
-          <div className='space-y-4  mb-8'>
+          <div className='space-y-4 mb-8'>
             <h2 className='text-xl font-semibold'>
               Ваш максимум на 1 повтор по разным формулам
             </h2>
-            <ul className='space-y-1'>
+            <div className='grid grid-cols-1 sm:grid-cols-2 gap-2'>
               {Object.entries(formulas).map(([key, f]) => {
                 const value = f.calculate(weight, reps)
                 return (
-                  <li key={key}>
-                    <div>
-                      <strong>{f.name}:</strong>{' '}
-                      <span className='font-medium'>
+                  <Card
+                    className='shadow-xs bg-gradient-to-t from-primary/5 to-card dark:bg-card'
+                    key={key}
+                  >
+                    <CardHeader className='relative'>
+                      <CardDescription>{f.name}</CardDescription>
+                      <CardTitle className='@[250px]/card:text-3xl text-2xl font-semibold tabular-nums'>
                         {Math.round(value)} кг
-                      </span>
-                    </div>
-                    <div className='text-sm text-muted-foreground'>
-                      {f.description}
-                    </div>
-                  </li>
+                      </CardTitle>
+                    </CardHeader>
+                    <CardFooter className='flex-col items-start gap-1 text-sm'>
+                      <div className='text-muted-foreground'>
+                        {f.description}
+                      </div>
+                    </CardFooter>
+                  </Card>
                 )
               })}
-            </ul>
+            </div>
           </div>
 
           <div className='space-y-4'>
-            <h2 className='text-xl font-semibold'>{`Значения в процентах от максимума на 1 повтор (${chartFormula})`}</h2>
+            <h2 className='text-xl font-semibold'>{`Значения в процентах от максимума на 1 повтор (${formulas[chartFormula].name})`}</h2>
             <ul className='space-y-1'>
-              {percentages.map((p) => (
-                <li key={p}>
-                  {p}%:{' '}
-                  <span className='font-medium'>
-                    {Math.round(base1RM * (p / 100))} кг
-                  </span>
-                </li>
-              ))}
+              {base1RM
+                ? percentages.map((p) => (
+                    <li key={p}>
+                      {p}%:{' '}
+                      <span className='font-medium'>
+                        {Math.round(base1RM * (p / 100))} кг
+                      </span>
+                    </li>
+                  ))
+                : null}
             </ul>
 
             {/*<OneRepMaxBarChart base1RM={base1RM} percentages={percentages} />*/}

@@ -3,10 +3,14 @@ import { BmiCalculator } from '@/components/bmi/BmiCalculator'
 import { siteConfig } from '@/config/site'
 import Script from 'next/script'
 
+const title = `Калькулятор BMI – Индекс массы тела онлайн - ${siteConfig.name}`
+const description =
+  'Онлайн-калькулятор индекса массы тела (BMI). Введите рост и вес, чтобы узнать свой ИМТ и соответствующую категорию: норма, недостаток или избыточный вес.'
+const url = `${siteConfig.url}/calc/bmi`
+
 export const metadata: Metadata = {
-  title: `Калькулятор BMI – Индекс массы тела онлайн - ${siteConfig.name}`,
-  description:
-    'Онлайн-калькулятор индекса массы тела (BMI). Введите рост и вес, чтобы узнать свой ИМТ и соответствующую категорию: норма, недостаток или избыточный вес.',
+  title,
+  description,
   keywords: [
     'BMI',
     'ИМТ',
@@ -17,28 +21,26 @@ export const metadata: Metadata = {
     'недостаток веса',
   ],
   openGraph: {
-    title: `Калькулятор BMI - Индекс массы тела - ${siteConfig.name}`,
-    description:
-      'Узнай свой индекс массы тела (BMI) и категорию веса по стандартной шкале ВОЗ.',
+    title,
+    description,
     type: 'website',
-    url: `${siteConfig.url}/calc/bmi`,
+    url,
     images: [siteConfig.ogImages.default],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Калькулятор BMI',
-    description:
-      'Рассчитайте индекс массы тела (BMI) онлайн. Введите рост и вес, чтобы узнать свою категорию.',
+    title,
+    description,
   },
   metadataBase: new URL(siteConfig.url),
   alternates: {
-    canonical: `${siteConfig.url}/calc/bmi`,
+    canonical: url,
   },
 }
 
 export default function BmiPage() {
   return (
-    <main className='max-w-2xl mx-auto p-6 space-y-8'>
+    <main className='max-w-2xl mx-auto space-y-8'>
       <section className='space-y-4'>
         <h1 className='text-3xl font-bold'>Калькулятор BMI (ИМТ)</h1>
         <p className='text-muted-foreground'>
@@ -56,9 +58,8 @@ export default function BmiPage() {
           '@context': 'https://schema.org',
           '@type': 'WebPage',
           name: 'Калькулятор BMI',
-          description:
-            'Рассчитайте индекс массы тела (BMI) онлайн. Введите рост и вес, чтобы узнать свою категорию.',
-          url: `${siteConfig.url}/calc/bmi`,
+          description,
+          url,
           publisher: {
             '@type': 'Organization',
             name: siteConfig.name,

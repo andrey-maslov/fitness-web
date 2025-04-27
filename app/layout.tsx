@@ -1,7 +1,5 @@
 import type { Metadata } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
-import { NextIntlClientProvider } from 'next-intl'
-import { getLocale } from 'next-intl/server'
 import './globals.css'
 import { PagesLayout } from '@/components/layouts/PagesLayout'
 import { siteConfig } from '@/config/site'
@@ -27,6 +25,7 @@ export default async function RootLayout({
   children: React.ReactNode
 }>) {
   // const locale = await getLocale()
+  // next-intl SSG https://medium.com/@pilniczek/next-intl-with-next-15-ssg-c374a7241ad8
   const locale = 'ru'
 
   return (
@@ -34,9 +33,7 @@ export default async function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen bg-background font-sans `}
       >
-        <NextIntlClientProvider>
-          <PagesLayout>{children}</PagesLayout>
-        </NextIntlClientProvider>
+        <PagesLayout>{children}</PagesLayout>
       </body>
     </html>
   )

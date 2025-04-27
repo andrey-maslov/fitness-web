@@ -41,14 +41,14 @@ export default function HomePage() {
     <>
       <section
         id='hero'
-        className='container mx-auto px-4 md:px-6 2xl:max-w-[1400px]'
+        className='container mx-auto md:px-6 2xl:max-w-[1400px]'
       >
         <HeroSection />
       </section>
 
       <section
         id='calculators'
-        className='container mx-auto space-y-8 px-4 py-10 lg:py-24 md:px-6 2xl:max-w-[1400px]'
+        className='container mx-auto space-y-8 py-10 lg:py-24 md:px-6 2xl:max-w-[1400px]'
       >
         <CalculatorsSection />
       </section>
@@ -56,14 +56,14 @@ export default function HomePage() {
       {/*<CTASection />*/}
 
       {/* Why not ChatGPT Section */}
-      <section className='container mx-auto space-y-8 px-4 py-10 lg:py-24 md:px-6 2xl:max-w-[1400px]'>
+      <section className='container mx-auto space-y-8 py-10 lg:py-24 md:px-6 2xl:max-w-[1400px]'>
         <Features />
       </section>
 
       {/* Subscribe section */}
       <div
         id='subscribe'
-        className='container mx-auto px-4 py-10 lg:py-24 md:px-6 lg:py-32 2xl:max-w-[1400px]'
+        className='container mx-auto py-10 lg:py-24 md:px-6 lg:py-32 2xl:max-w-[1400px]'
       >
         <SubscribeSection />
       </div>

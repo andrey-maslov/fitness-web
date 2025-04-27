@@ -3,10 +3,14 @@ import DayCaloriesCalculator from '@/components/day-calories/DayCaloriesCalculat
 import { siteConfig } from '@/config/site'
 import Script from 'next/script'
 
+const title = `Калькулятор калорий – Норма калорий в день - ${siteConfig.name}`
+const description =
+  'Рассчитайте суточную норму калорий (BMR) с учётом пола, веса, роста, возраста и уровня активности. Онлайн калькулятор калорий для мужчин и женщин.'
+const url = ''
+
 export const metadata: Metadata = {
-  title: `Калькулятор калорий – Норма калорий в день (BMR + активность) - ${siteConfig.name}`,
-  description:
-    'Рассчитайте суточную норму калорий (BMR) с учётом пола, веса, роста, возраста и уровня активности. Онлайн калькулятор калорий для мужчин и женщин.',
+  title,
+  description,
   keywords: [
     'калории в день',
     'норма калорий',
@@ -17,28 +21,26 @@ export const metadata: Metadata = {
     'онлайн расчет',
   ],
   openGraph: {
-    title: `Калькулятор калорий – Норма калорий в день - ${siteConfig.name}`,
-    description:
-      'Онлайн-калькулятор нормы калорий с учётом метаболизма и активности.',
+    title,
+    description,
     type: 'website',
-    url: `${siteConfig.url}/calc/day-calories`,
+    url,
     images: [siteConfig.ogImages.default],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Калькулятор калорий',
-    description:
-      'Рассчитайте суточную потребность в калориях для мужчин и женщин онлайн.',
+    title,
+    description,
   },
   metadataBase: new URL(siteConfig.url),
   alternates: {
-    canonical: `${siteConfig.url}/calc/day-calories`,
+    canonical: url,
   },
 }
 
 export default function DayCaloriesPage() {
   return (
-    <main className='max-w-2xl mx-auto p-6 space-y-8'>
+    <main className='max-w-2xl mx-auto space-y-8'>
       <section className='space-y-4'>
         <h1 className='text-3xl font-bold'>Калькулятор калорий</h1>
         <p className='text-muted-foreground'>
@@ -55,10 +57,9 @@ export default function DayCaloriesPage() {
         {JSON.stringify({
           '@context': 'https://schema.org',
           '@type': 'WebPage',
-          name: 'Калькулятор калорий',
-          description:
-            'УРассчитайте суточную потребность в калориях для мужчин и женщин онлайн.',
-          url: `${siteConfig.url}/calc/day-calories`,
+          name: title,
+          description,
+          url,
           publisher: {
             '@type': 'Organization',
             name: siteConfig.name,
