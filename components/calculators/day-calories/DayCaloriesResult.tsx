@@ -1,4 +1,4 @@
-import { MacroPieChart } from '@/components/day-calories/MacroPieChart'
+import { MacroPieChart } from '@/components/calculators/day-calories/MacroPieChart'
 import {
   Card,
   CardDescription,

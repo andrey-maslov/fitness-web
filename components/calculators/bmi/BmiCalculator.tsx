@@ -6,7 +6,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { cn } from '@/lib/utils'
-import { BmiScaleBar } from '@/components/bmi/BmiScaleBar'
+import { BmiScaleBar } from '@/components/calculators/bmi/BmiScaleBar'
 import { useEffect, useState } from 'react'
 import { usePlausible } from 'next-plausible'
 import {

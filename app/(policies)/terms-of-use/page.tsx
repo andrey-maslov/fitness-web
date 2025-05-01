@@ -46,7 +46,7 @@ export default async function TermsPage() {
           Настоящее Пользовательское соглашение (далее — «Соглашение»)
           регулирует условия использования веб-сервиса{' '}
           <strong>MakeMeStrong</strong> (далее — «Сервис»), доступного по адресу{' '}
-          <a href='https://makemestrong.fit'>https://makemestrong.fit</a>.
+          <a href='https://makemestrong.fit'>https://www.makemestrong.fit</a>.
         </p>
 
         <h2>1. Общие положения</h2>

@@ -1,5 +1,5 @@
 import { Metadata } from 'next'
-import DayCaloriesCalculator from '@/components/day-calories/DayCaloriesCalculator'
+import DayCaloriesCalculator from '@/components/calculators/day-calories/DayCaloriesCalculator'
 import { siteConfig } from '@/config/site'
 import Script from 'next/script'
 

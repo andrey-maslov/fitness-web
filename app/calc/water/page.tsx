@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { siteConfig } from '@/config/site'
 import Script from 'next/script'
-import WaterCalculator from '@/components/water/WaterCalculator'
+import WaterCalculator from '@/components/calculators/water/WaterCalculator'
 
 export const metadata: Metadata = {
   title: `Калькулятор нормы воды — ${siteConfig.name}`,

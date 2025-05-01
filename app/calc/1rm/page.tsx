@@ -1,4 +1,4 @@
-import OneRepMax from '@/components/one-rep-max/OneRepMax'
+import OneRepMax from '@/components/calculators/one-rep-max/OneRepMax'
 import Script from 'next/script'
 import type { Metadata } from 'next'
 import { siteConfig } from '@/config/site'

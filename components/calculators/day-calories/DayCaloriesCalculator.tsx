@@ -8,7 +8,7 @@ import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
 import { Button } from '@/components/ui/button'
 import { activityOptions } from '@/config/calculators.config'
 import { calculateCalories } from '@/lib/calculateCalories'
-import { DayCaloriesResult } from '@/components/day-calories/DayCaloriesResult'
+import { DayCaloriesResult } from '@/components/calculators/day-calories/DayCaloriesResult'
 import { DevTool } from '@hookform/devtools'
 
 export default function DayCaloriesCalculator() {

@@ -1,5 +1,5 @@
 import { Metadata } from 'next'
-import { BmiCalculator } from '@/components/bmi/BmiCalculator'
+import { BmiCalculator } from '@/components/calculators/bmi/BmiCalculator'
 import { siteConfig } from '@/config/site'
 import Script from 'next/script'
 

@@ -2,17 +2,12 @@ export const siteConfig = {
   name: 'MakeMeStrong',
   title: "MakeMeStrong - Фитнес-калькуляторы онлайн",
   description: 'Фитнес-калькуляторы и инструменты для улучшения тела и силы.',
-  url: 'https://makemestrong.fit', // базовый домен
-
-  author: {
-    name: 'MakeMeStrong Team',
-    url: 'https://makemestrong.fit',
-  },
+  url: 'https://www.makemestrong.fit',
 
   links: {
     github: 'https://github.com/yourname/makemestrong',
-    twitter: 'https://twitter.com/yourhandle',
-    telegram: 'https://t.me/yourchannel',
+    twitter: 'https://twitter.com/makemestrong',
+    telegram: 'https://t.me/makemestrong',
   },
 
   ogImages: {
