@@ -3,10 +3,13 @@ import { siteConfig } from '@/config/site'
 import Script from 'next/script'
 import WaterCalculator from '@/components/calculators/water/WaterCalculator'
 
-export const metadata: Metadata = {
-  title: `Калькулятор нормы воды — ${siteConfig.name}`,
-  description:
-    'Быстро рассчитайте вашу оптимальную суточную норму воды на основе веса и активности. Удобный онлайн калькулятор воды от MakeMeStrong.',
+const title = `Калькулятор нормы воды — ${siteConfig.name}`
+const description =     'Быстро рассчитайте вашу оптимальную суточную норму воды на основе веса и активности. Удобный онлайн калькулятор воды от MakeMeStrong.'
+const url = `${siteConfig.url}/calc/water`
+
+  export const metadata: Metadata = {
+  title,
+  description,
   keywords: [
     'калькулятор воды',
     'сколько пить воды',
@@ -15,21 +18,19 @@ export const metadata: Metadata = {
     'MakeMeStrong',
   ],
   openGraph: {
-    title: `Калькулятор нормы воды — ${siteConfig.name}`,
-    description:
-      'Быстро рассчитайте вашу оптимальную суточную норму воды на основе веса и активности. Удобный онлайн калькулятор воды от MakeMeStrong.',
-    url: `${siteConfig.url}/water`,
+    title,
+    description,
+    url,
     type: 'website',
     images: [siteConfig.ogImages.default],
   },
   twitter: {
     card: 'summary_large_image',
-    title: `Калькулятор нормы воды — ${siteConfig.name}`,
-    description:
-      'Быстро рассчитайте вашу оптимальную суточную норму воды на основе веса и активности. Удобный онлайн калькулятор воды от MakeMeStrong.',
+    title,
+    description,
   },
   alternates: {
-    canonical: `${siteConfig.url}/water`,
+    canonical: url,
   },
   metadataBase: new URL(siteConfig.url),
 }
@@ -65,9 +66,8 @@ export default function WaterPage() {
           '@context': 'https://schema.org',
           '@type': 'WebPage',
           name: 'Калькулятор нормы воды',
-          description:
-            'Рассчитайте вашу суточную норму воды на основе веса и активности с помощью калькулятора MakeMeStrong.',
-          url: `${siteConfig.url}/water`,
+          description,
+          url,
           inLanguage: 'ru',
           publisher: {
             '@type': 'Organization',
